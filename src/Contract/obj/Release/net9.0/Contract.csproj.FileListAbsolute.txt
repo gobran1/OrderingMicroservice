@@ -1,0 +1,15 @@
+/Users/majd/Documents/projects/assesment/src/Contract/bin/Release/net9.0/Contract.deps.json
+/Users/majd/Documents/projects/assesment/src/Contract/bin/Release/net9.0/Contract.dll
+/Users/majd/Documents/projects/assesment/src/Contract/bin/Release/net9.0/Contract.pdb
+/Users/majd/Documents/projects/assesment/src/Contract/bin/Release/net9.0/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/Contract/bin/Release/net9.0/SharedKernel.pdb
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.csproj.AssemblyReference.cache
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.GeneratedMSBuildEditorConfig.editorconfig
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.AssemblyInfoInputs.cache
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.AssemblyInfo.cs
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.csproj.CoreCompileInputs.cache
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.csproj.Up2Date
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.dll
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/refint/Contract.dll
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/Contract.pdb
+/Users/majd/Documents/projects/assesment/src/Contract/obj/Release/net9.0/ref/Contract.dll

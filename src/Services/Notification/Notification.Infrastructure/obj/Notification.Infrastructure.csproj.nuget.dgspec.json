@@ -1,0 +1,332 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Infrastructure/Notification.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj",
+        "projectName": "Contract",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/Contract/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/majd/Documents/projects/assesment/src/SharedKernel/SharedKernel.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/SharedKernel/SharedKernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/Notification.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/Notification.Application.csproj",
+        "projectName": "Notification.Application",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/Notification.Application.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/Notification.Domain.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/Notification.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/Notification.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/Notification.Domain.csproj",
+        "projectName": "Notification.Domain",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/Notification.Domain.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Infrastructure/Notification.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Infrastructure/Notification.Infrastructure.csproj",
+        "projectName": "Notification.Infrastructure",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Infrastructure/Notification.Infrastructure.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj"
+              },
+              "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/Notification.Application.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/Notification.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.2, )"
+            },
+            "MassTransit.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.5.2, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.5.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/majd/Documents/projects/assesment/src/SharedKernel/SharedKernel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/SharedKernel/SharedKernel.csproj",
+        "projectName": "SharedKernel",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/SharedKernel/SharedKernel.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

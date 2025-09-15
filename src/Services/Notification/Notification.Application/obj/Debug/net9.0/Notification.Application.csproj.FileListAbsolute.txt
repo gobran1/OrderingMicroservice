@@ -1,0 +1,15 @@
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/bin/Debug/net9.0/Notification.Application.deps.json
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/bin/Debug/net9.0/Notification.Application.dll
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/bin/Debug/net9.0/Notification.Application.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/bin/Debug/net9.0/Notification.Domain.dll
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/bin/Debug/net9.0/Notification.Domain.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.csproj.AssemblyReference.cache
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfoInputs.cache
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfo.cs
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.csproj.CoreCompileInputs.cache
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notifica.1404CAA7.Up2Date
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.dll
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/refint/Notification.Application.dll
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/ref/Notification.Application.dll

@@ -1,0 +1,138 @@
+version: "3.8"
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dev-sqlserver
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "${MSSQL_SA_PASSWORD}"
+    ports:
+      - "${MSSQL_HOST_PORT}:1433"
+    volumes:
+      - mssqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P \"$${MSSQL_SA_PASSWORD}\" -Q \"SELECT 1\" -b || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    networks:
+      - dev-network
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: dev-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: "${RABBITMQ_USER}"
+      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_PASS}"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    networks:
+      - dev-network
+  
+  inventory.api:
+    build:
+      context: .
+      dockerfile: Services/Inventory/Inventory.Api/Dockerfile
+      platforms:
+        - linux/amd64
+    container_name: inventory.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__InventoryDb=Server=db,1433;Database=inventory_db;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;
+      - RabbitMq__Host=rabbitmq
+      - RabbitMq__Username=${RABBITMQ_USER}
+      - RabbitMq__Password=${RABBITMQ_PASS}
+      - ASPNETCORE_URLS=http://+:${INVENTORY_PORT};https://+:${SSL_INVENTORY_PORT}
+      - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+    depends_on:
+      db:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    networks:
+      - dev-network
+
+  order.api:
+    build:
+      context: .
+      dockerfile: Services/Order/Order.Api/Dockerfile
+      platforms:
+        - linux/amd64
+    container_name: order.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - InventoryUrl=https://inventory.api:${SSL_INVENTORY_PORT}
+      - ConnectionStrings__OrderDb=Server=db,1433;Database=order_db;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;
+      - RabbitMq__Host=rabbitmq
+      - RabbitMq__Username=${RABBITMQ_USER}
+      - RabbitMq__Password=${RABBITMQ_PASS}
+      - ASPNETCORE_URLS=http://+:${ORDER_PORT};https://+:${SSL_ORDER_PORT}
+    depends_on:
+      db:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    networks:
+      - dev-network
+  
+  notification.api:
+    build:
+      context: .
+      dockerfile: Services/Notification/Notification.Api/Dockerfile
+      platforms:
+        - linux/amd64
+    container_name: notification.api
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+      - RabbitMq__Host=rabbitmq
+      - RabbitMq__Username=${RABBITMQ_USER}
+      - RabbitMq__Password=${RABBITMQ_PASS}
+    depends_on:
+      db:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    networks:
+      - dev-network
+
+  yarp:
+    build:
+      context: .
+      dockerfile: ApiGateway/Yarp.Api/Dockerfile
+      platforms:
+        - linux/amd64
+    container_name: gateway.yarp
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:${GATEWAY_PORT}
+    depends_on:
+      inventory.api:
+        condition: service_started
+      order.api:
+        condition: service_started
+      notification.api:
+        condition: service_started
+    networks:
+      - dev-network
+    ports:
+      - "${GATEWAY_PORT:-5000}:5000"
+
+
+volumes:
+  mssqldata:
+  rabbitmqdata:
+networks:
+  dev-network:
+    driver: bridge

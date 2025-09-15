@@ -1,0 +1,11 @@
+/Users/majd/Documents/projects/assesment/src/SharedKernel/bin/Debug/net9.0/SharedKernel.deps.json
+/Users/majd/Documents/projects/assesment/src/SharedKernel/bin/Debug/net9.0/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/SharedKernel/bin/Debug/net9.0/SharedKernel.pdb
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfoInputs.cache
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfo.cs
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.csproj.CoreCompileInputs.cache
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/refint/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.pdb
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/ref/SharedKernel.dll

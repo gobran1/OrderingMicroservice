@@ -1,0 +1,15 @@
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/bin/Debug/net9.0/Order.Domain.deps.json
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/bin/Debug/net9.0/Order.Domain.dll
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/bin/Debug/net9.0/Order.Domain.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/bin/Debug/net9.0/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/bin/Debug/net9.0/SharedKernel.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.csproj.AssemblyReference.cache
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.AssemblyInfoInputs.cache
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.AssemblyInfo.cs
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.csproj.CoreCompileInputs.cache
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Do.5EF8E5B4.Up2Date
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.dll
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/refint/Order.Domain.dll
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/ref/Order.Domain.dll
