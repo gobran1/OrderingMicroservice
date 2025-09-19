@@ -5,6 +5,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
+    <PackageReference Include="Grpc.AspNetCore.HealthChecks" Version="2.71.0" />
     <PackageReference Include="MassTransit" Version="8.5.2" />
     <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.5.2" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.2" />

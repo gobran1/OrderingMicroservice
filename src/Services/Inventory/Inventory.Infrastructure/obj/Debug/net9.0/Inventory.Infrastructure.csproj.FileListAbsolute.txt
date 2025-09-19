@@ -21,3 +21,4 @@
 /Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Infrastructure/bin/Debug/net9.0/Contract.dll
 /Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Infrastructure/bin/Debug/net9.0/Contract.pdb
 /Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.genruntimeconfig.cache
+/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.sourcelink.json

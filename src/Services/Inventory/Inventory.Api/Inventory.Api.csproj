@@ -33,6 +33,7 @@
     <Protobuf Include="..\..\..\Contract\Inventory\Protos\product.proto" GrpcServices="Server" />
   </ItemGroup>
 
+
   
   <ItemGroup>
     <None Include="Properties\launchSettings.json" />

@@ -9,3 +9,4 @@
 /Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/refint/SharedKernel.dll
 /Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.pdb
 /Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/ref/SharedKernel.dll
+/Users/majd/Documents/projects/assesment/src/SharedKernel/obj/Debug/net9.0/SharedKernel.sourcelink.json

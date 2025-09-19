@@ -12,6 +12,7 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using SharedKernel.Entity;
 using SharedKernel.Messaging;
@@ -54,6 +55,8 @@ public static class DependencyInjection
 
         return services;
     }
+
+   
     
     public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration)
     {

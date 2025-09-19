@@ -352,6 +352,22 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AspNetCore.HealthChecks.Rabbitmq": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AspNetCore.HealthChecks.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AspNetCore.HealthChecks.UI": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Grpc.AspNetCore.HealthChecks": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
             "MassTransit": {
               "target": "Package",
               "version": "[8.5.2, )"

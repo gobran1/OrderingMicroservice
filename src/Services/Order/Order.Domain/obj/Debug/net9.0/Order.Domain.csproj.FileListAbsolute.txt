@@ -13,3 +13,4 @@
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/refint/Order.Domain.dll
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.pdb
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/ref/Order.Domain.dll
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.sourcelink.json

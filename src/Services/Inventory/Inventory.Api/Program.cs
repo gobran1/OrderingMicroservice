@@ -13,17 +13,16 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
 
 builder.Services.AddGrpc();
-builder.Services.AddGrpcReflection();
-
+builder.Services.AddHealthCheckServices(builder.Configuration);
 
 var app = builder.Build();
 
-app.UseCors("AllowAny");
+app.UseCors("AllowAny"); 
+
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapGrpcReflectionService();
     
     app.UseSwagger();
     app.UseSwaggerUI(c=>{
@@ -36,6 +35,8 @@ app.MapGrpcService<ProductServiceImpl>();
 //app.UseHttpsRedirection();
 
 app.MapControllers();
+
+app.MapHealthChecksEndpoints();
 
 await InitializeDatabase(app);
 

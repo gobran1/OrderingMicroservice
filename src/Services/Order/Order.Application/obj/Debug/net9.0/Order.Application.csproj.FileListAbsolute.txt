@@ -17,3 +17,4 @@
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Application/obj/Debug/net9.0/ref/Order.Application.dll
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Application/bin/Debug/net9.0/Contract.dll
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Application/bin/Debug/net9.0/Contract.pdb
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.sourcelink.json

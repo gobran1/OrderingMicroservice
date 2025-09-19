@@ -21,3 +21,4 @@
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Infrastructure/bin/Debug/net9.0/Contract.dll
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Infrastructure/bin/Debug/net9.0/Contract.pdb
 /Users/majd/Documents/projects/assesment/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.genruntimeconfig.cache
+/Users/majd/Documents/projects/assesment/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.sourcelink.json

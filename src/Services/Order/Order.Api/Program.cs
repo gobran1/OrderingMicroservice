@@ -15,6 +15,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
+builder.Services.AddHealthCheckServices(builder.Configuration); 
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -27,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
+
+app.MapHealthCheckEndpoints();
 
 MapOrdersRoutes(app);
 
@@ -47,7 +51,7 @@ void InitializeDatabase(WebApplication app)
 void MapOrdersRoutes(WebApplication app)
 {
     var orders = app.MapGroup("api/order");
-
+    
     orders.MapPost("", async ([FromBody]CreateOrderDTO dto,[FromServices] IMediator mediator) =>
         {
             var result = await mediator.Send(new CreateOrderCommand(dto));
@@ -67,7 +71,7 @@ void MapOrdersRoutes(WebApplication app)
 
             if (result.IsFailure)
                 return Results.BadRequest(result.Error);
-
+            
             return Results.Ok(result.Value);
         }).Produces<ActionResult<GetOrderDetailsDTO>>(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status400BadRequest);
