@@ -19,7 +19,7 @@ RUN apt-get update && \
 ENV DOTNET_NUGET_SIGNATURE_VERIFICATION=false
 RUN dotnet nuget locals all --clear
 
-RUN dotnet restore "Services/Inventory/Inventory.Api/Inventory.Api.csproj" --no-cache
+RUN dotnet restore "Services/Inventory/Inventory.Api/Inventory.Api.csproj"
 COPY . .
 WORKDIR "/src/Services/Inventory/Inventory.Api"
 
@@ -31,22 +31,26 @@ FROM base AS final
 WORKDIR /app
 
 COPY --from=publish /app/publish .
-
+COPY  /Services/Inventory/Inventory.Api/healthcheck.sh /app
 COPY ./certs/local-ca.crt /usr/local/share/ca-certificates/local-dev.crt
+
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ca-certificates \
+ && apt-get install -y --no-install-recommends ca-certificates curl \
  && update-ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home appuser
 COPY --chown=appuser:appuser ./certs/aspnetapp.pfx /https/aspnetapp.pfx
 RUN chmod 600 /https/aspnetapp.pfx
+
+RUN chmod +x /app/healthcheck.sh
+
 USER appuser
+
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
 ENV ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssw0rd!
-
-
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV ASPNETCORE_URLS=http://+:5001;https://+:6001
+
 
 ENTRYPOINT ["dotnet", "Inventory.Api.dll"]

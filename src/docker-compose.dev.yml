@@ -58,11 +58,17 @@ services:
       - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
     depends_on:
       db:
-        condition: service_started
+        condition: service_healthy
       rabbitmq:
-        condition: service_started
+        condition: service_healthy
     networks:
       - dev-network
+    healthcheck:
+      test: [ "CMD-SHELL","/app/healthcheck.sh" ]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
 
   order.api:
     build:
@@ -81,11 +87,19 @@ services:
       - ASPNETCORE_URLS=http://+:${ORDER_PORT};https://+:${SSL_ORDER_PORT}
     depends_on:
       db:
-        condition: service_started
+        condition: service_healthy
       rabbitmq:
-        condition: service_started
+        condition: service_healthy
+      inventory.api:
+        condition: service_healthy
     networks:
       - dev-network
+    healthcheck:
+      test: ["CMD-SHELL","/app/healthcheck.sh"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
   
   notification.api:
     build:
@@ -101,9 +115,9 @@ services:
       - RabbitMq__Password=${RABBITMQ_PASS}
     depends_on:
       db:
-        condition: service_started
+        condition: service_healthy
       rabbitmq:
-        condition: service_started
+        condition: service_healthy
     networks:
       - dev-network
 
@@ -119,17 +133,22 @@ services:
       - ASPNETCORE_URLS=http://+:${GATEWAY_PORT}
     depends_on:
       inventory.api:
-        condition: service_started
+        condition: service_healthy
       order.api:
-        condition: service_started
+        condition: service_healthy
       notification.api:
-        condition: service_started
+        condition: service_healthy
     networks:
       - dev-network
     ports:
       - "${GATEWAY_PORT:-5000}:5000"
-
-
+    healthcheck:
+      test: [ "CMD-SHELL","/app/healthcheck.sh" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+  
 volumes:
   mssqldata:
   rabbitmqdata:

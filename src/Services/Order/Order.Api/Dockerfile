@@ -32,20 +32,26 @@ WORKDIR /app
 
 
 COPY --from=publish /app/publish .
-
+COPY  /Services/Order/Order.Api/healthcheck.sh /app
 COPY ./certs/local-ca.crt /usr/local/share/ca-certificates/local-dev.crt
+
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ca-certificates \
+ && apt-get install -y --no-install-recommends ca-certificates curl \
  && update-ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home appuser
 COPY --chown=appuser:appuser ./certs/aspnetapp.pfx /https/aspnetapp.pfx
 RUN chmod 600 /https/aspnetapp.pfx
+
+RUN chmod +x /app/healthcheck.sh
+
 USER appuser
 
-ENV ASPNETCORE_URLS=http://+:5002;https://+:6002
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
 ENV ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssw0rd!
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:5002;https://+:6002
+
 
 ENTRYPOINT ["dotnet", "Order.Api.dll"]

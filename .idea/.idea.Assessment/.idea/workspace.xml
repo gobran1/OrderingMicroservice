@@ -17,13 +17,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1afb77f4-e4c1-4dde-a35d-6bb60eeecbd8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Infrastructure/BackgroundServices/BackgroundHealthCheckService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/healthcheck.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/healthcheck.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/healthcheck.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assessment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assessment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Extensions/HealthCheckDI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Extensions/HealthCheckDI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Extensions/HealthCheckDI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Extensions/HealthCheckDI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,7 +393,7 @@
       <workItem from="1758172746472" duration="4791000" />
       <workItem from="1758217448077" duration="8082000" />
       <workItem from="1758260934159" duration="7198000" />
-      <workItem from="1758302359984" duration="27525000" />
+      <workItem from="1758302359984" duration="40996000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
