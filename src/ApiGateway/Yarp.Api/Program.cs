@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +8,6 @@ builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
 builder.Services.AddHttpForwarder();
-
 
 builder.Services.AddCors(options =>
 {
@@ -42,6 +43,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+
+builder.Services.AddHealthChecks()
+    .AddCheck("self",()=>HealthCheckResult.Healthy(),timeout:TimeSpan.FromSeconds(3),tags:["live"]);
+
 var app = builder.Build();
 
 app.UseCors("AllowAny");
@@ -62,5 +67,17 @@ if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName == "Docke
 app.MapReverseProxy();
 
 app.MapGet("/", () => "YARP gateway running");
+app.MapHealthChecks("health/live",new HealthCheckOptions
+{
+    Predicate = predicate => predicate.Tags.Contains("live"),
+    AllowCachingResponses = false,
+    ResponseWriter = (HttpContext httpContext, HealthReport report) =>
+    {
+        httpContext.Response.ContentType = "text/plain; charset=utf-8";
+        httpContext.Response.StatusCode = report.Status == HealthStatus.Healthy ? 200 : 503;
+        return httpContext.Response.WriteAsync(report.Status.ToString());
+    }
+});
+
 
 app.Run();

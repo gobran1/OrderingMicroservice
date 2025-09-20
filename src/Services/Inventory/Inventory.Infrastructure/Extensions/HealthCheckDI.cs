@@ -30,7 +30,26 @@ public static class HealthCheckDI
                 connectionFactory.Password = cfg["RabbitMq:Password"];
                 connectionFactory.RequestedConnectionTimeout = TimeSpan.FromSeconds(3);
                 return connectionFactory.CreateConnectionAsync();
-            },name: "RabbitMQ-check",failureStatus: HealthStatus.Unhealthy,tags: new[] {"ready"});
+            },name: "RabbitMQ-check",failureStatus: HealthStatus.Unhealthy,tags: new[] {"ready"})
+            .AddCheck("Configuration", () =>
+            {
+                var requiredConfigurationKeys = new List<string>
+                {
+                    "RabbitMq:Host",
+                    "ConnectionStrings:InventoryDb",
+                };
+
+                var missingRequiredFields = requiredConfigurationKeys
+                    .Where(k => string.IsNullOrEmpty(configuration[k]))
+                    .ToList();
+
+                if (missingRequiredFields.Any())
+                {
+                    return HealthCheckResult.Unhealthy($"Required fields are missing from configuration: ({string.Join(',', missingRequiredFields)})");
+                }
+                
+                return HealthCheckResult.Healthy();
+            },tags: ["ready"],timeout:TimeSpan.FromSeconds(3));
 
 
         services.AddGrpcHealthChecks();

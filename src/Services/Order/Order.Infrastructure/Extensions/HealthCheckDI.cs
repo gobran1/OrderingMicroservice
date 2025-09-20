@@ -23,16 +23,16 @@ public static class HealthCheckDI
       services.AddGrpcClient<Health.HealthClient>(o=>
          o.Address = new Uri(inventoryUrl ?? String.Empty)
       );
-      
-      
+
+
       services.AddHealthChecks()
-         .AddCheck("self",() => HealthCheckResult.Healthy("OK"),tags:["live"],timeout:TimeSpan.FromSeconds(3))
+         .AddCheck("self", () => HealthCheckResult.Healthy("OK"), tags: ["live"], timeout: TimeSpan.FromSeconds(3))
          .AddSqlServer(
             configuration.GetConnectionString("OrderDb"),
-            failureStatus:HealthStatus.Unhealthy,
-            tags:["ready"],
-            name:"OrderDb-Check",
-            timeout:TimeSpan.FromSeconds(3)
+            failureStatus: HealthStatus.Unhealthy,
+            tags: ["ready"],
+            name: "OrderDb-Check",
+            timeout: TimeSpan.FromSeconds(3)
          ).AddRabbitMQ(sp =>
             {
                var configuration = sp.GetService<IConfiguration>();
@@ -43,10 +43,30 @@ public static class HealthCheckDI
                connectionFactory.RequestedConnectionTimeout = TimeSpan.FromSeconds(3);
 
                return connectionFactory.CreateConnectionAsync();
-               
-            },name: "Order-RabbitMq-checkٌِ",timeout:TimeSpan.FromSeconds(3),tags:["ready"],failureStatus:HealthStatus.Unhealthy
-         ).AddCheck<GrpcHealthClient>("inventory-grpc-service-healthCheck",timeout:TimeSpan.FromSeconds(3),tags:["ready"],failureStatus:HealthStatus.Unhealthy);
-         
+
+            }, name: "order.rabbitMQ-check", timeout: TimeSpan.FromSeconds(3), tags: ["ready"],
+            failureStatus: HealthStatus.Unhealthy
+         ).AddCheck<GrpcHealthClient>("inventory-grpc-service-healthCheck", timeout: TimeSpan.FromSeconds(3),
+            tags: ["ready"], failureStatus: HealthStatus.Unhealthy)
+         .AddCheck("Configuration", () =>
+         {
+            var requiredConfigurationKeys = new List<string> {
+               "ConnectionStrings:OrderDb",
+               "RabbitMq:Host",
+               "InventoryUrl"
+            };
+            var emptyFields = requiredConfigurationKeys
+               .Where(k => string.IsNullOrEmpty(configuration[k])).ToList();
+            
+            if (emptyFields.Any())
+            {
+               return HealthCheckResult.Unhealthy($"required fields are missing from configuration: ({string.Join(',', emptyFields)})");
+            }
+            
+            return HealthCheckResult.Healthy();
+            
+         }, tags: ["ready"], timeout: TimeSpan.FromSeconds(3));
+         ;
       
       return services;
    }
@@ -65,7 +85,7 @@ public static class HealthCheckDI
          ResponseWriter = WriteDetailedResponseAsync,
          AllowCachingResponses = false
       });
-      
+
    }
    
    public static Task WriteBasicResponseAsync(HttpContext httpContext,HealthReport healthReport)

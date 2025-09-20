@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Notification.Infrastructure.BackgroundServices;
 using Notification.Infrastructure.Extensions;
 
 var builder = Host.CreateDefaultBuilder(args)
@@ -10,8 +12,11 @@ var builder = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
     {
         services.AddInfrastructure(hostContext.Configuration);
+        services.AddHostedService<BackgroundHealthCheckService>();
     });
 
 var app = builder.Build();
+
+
 
 await app.RunAsync();

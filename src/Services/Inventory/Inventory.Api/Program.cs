@@ -32,11 +32,12 @@ if (app.Environment.IsDevelopment())
 
 app.MapGrpcService<ProductServiceImpl>();
 
+app.MapHealthChecksEndpoints();
+
 //app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.MapHealthChecksEndpoints();
 
 await InitializeDatabase(app);
 
