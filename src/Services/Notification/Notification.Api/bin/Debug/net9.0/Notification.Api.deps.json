@@ -588,8 +588,7 @@
           "MassTransit": "8.5.2",
           "MassTransit.EntityFrameworkCore": "8.5.2",
           "MassTransit.RabbitMQ": "8.5.2",
-          "Notification.Application": "1.0.0",
-          "Notification.Domain": "1.0.0"
+          "Notification.Application": "1.0.0"
         },
         "runtime": {
           "Notification.Infrastructure.dll": {

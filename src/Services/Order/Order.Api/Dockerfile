@@ -53,5 +53,4 @@ ENV ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssw0rd!
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV ASPNETCORE_URLS=http://+:5002;https://+:6002
 
-
 ENTRYPOINT ["dotnet", "Order.Api.dll"]

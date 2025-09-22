@@ -13,3 +13,4 @@
 /Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/refint/Notification.Application.dll
 /Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.pdb
 /Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/ref/Notification.Application.dll
+/Users/majd/Documents/projects/assesment/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.sourcelink.json

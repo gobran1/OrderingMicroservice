@@ -13,11 +13,11 @@ services:
     volumes:
       - mssqldata:/var/opt/mssql
     healthcheck:
-      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P \"$${MSSQL_SA_PASSWORD}\" -Q \"SELECT 1\" -b || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-      start_period: 20s
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P \"P@ssw0rd\" -Q \"SELECT 1\" -b -C"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
     networks:
       - dev-network
 
@@ -38,6 +38,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
+      start_period: 30s
     networks:
       - dev-network
   
@@ -56,6 +57,8 @@ services:
       - RabbitMq__Password=${RABBITMQ_PASS}
       - ASPNETCORE_URLS=http://+:${INVENTORY_PORT};https://+:${SSL_INVENTORY_PORT}
       - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+      - INVENTORY_PORT=${INVENTORY_PORT}
+      - SSL_INVENTORY_PORT=${SSL_INVENTORY_PORT}
     depends_on:
       db:
         condition: service_healthy
@@ -67,7 +70,7 @@ services:
       test: [ "CMD-SHELL","/app/healthcheck.sh" ]
       interval: 30s
       timeout: 5s
-      start_period: 60s
+      start_period: 80s
       retries: 3
 
   order.api:
@@ -85,6 +88,8 @@ services:
       - RabbitMq__Username=${RABBITMQ_USER}
       - RabbitMq__Password=${RABBITMQ_PASS}
       - ASPNETCORE_URLS=http://+:${ORDER_PORT};https://+:${SSL_ORDER_PORT}
+      - ORDER_PORT=${ORDER_PORT}
+      - SSL_ORDER_PORT=${SSL_ORDER_PORT}
     depends_on:
       db:
         condition: service_healthy
@@ -99,7 +104,7 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
-      start_period: 60s
+      start_period: 80s
   
   notification.api:
     build:
@@ -131,12 +136,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:${GATEWAY_PORT}
+      - GATEWAY_PORT=${GATEWAY_PORT}
     depends_on:
       inventory.api:
         condition: service_healthy
       order.api:
-        condition: service_healthy
-      notification.api:
         condition: service_healthy
     networks:
       - dev-network
@@ -147,7 +151,7 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
-      start_period: 60s
+      start_period: 100s
   
 volumes:
   mssqldata:
