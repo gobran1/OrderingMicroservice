@@ -1,43 +1,133 @@
+using System.Diagnostics;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OpenTelemetry.Exporter;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Order.Application.Features.Order.Commands;
 using Order.Application.Features.Order.DTOs;
 using Order.Application.Features.Order.Queries;
 using Order.Infrastructure.Extensions;
+using Order.Infrastructure.Monitoring;
 using Order.Infrastructure.Persistence;
+using Serilog;
+using Serilog.Formatting.Compact;
 using SharedKernel.DTOs;
 
-var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+var serviceName = "Order.Api";
+var serviceVersion = "1.0.0";
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 
-builder.Services.AddInfrastructure(builder.Configuration);
+// Create ActivitySource for tracing
+var activitySource = new ActivitySource(serviceName, serviceVersion);
 
-builder.Services.AddHealthCheckServices(builder.Configuration); 
+var loggerConfiguration = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("service", serviceName)
+    .Enrich.WithProperty("environment", environment)
+    .Enrich.WithProcessId()
+    .Enrich.WithThreadId()
+    .Enrich.WithMachineName()
+    .Enrich.With<TraceEnricher>()
+    .WriteTo.Console(new RenderedCompactJsonFormatter())
+    .CreateLogger();
 
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
+try
 {
-    app.MapOpenApi();
-    app.MapGrpcReflectionService();
-    
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    Log.Information("Starting {ServiceName}", serviceName);
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Host.UseSerilog(loggerConfiguration);
+
+    builder.Services.AddOpenApi();
+
+    builder.Services.AddInfrastructure(builder.Configuration);
+
+    builder.Services.AddHealthCheckServices(builder.Configuration);
+
+    var resourceBuilder = ResourceBuilder.CreateDefault()
+        .AddService(serviceName: serviceName, serviceVersion: serviceVersion);
+
+
+    // Configure OpenTelemetry
+    builder.Services.AddOpenTelemetry()
+        .ConfigureResource(resource => resource
+            .AddService(serviceName: serviceName, serviceVersion: serviceVersion))
+        .WithTracing(providerBuilder =>
+        {
+            providerBuilder
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddSource(serviceName) // Use the service name as the activity source
+                .SetSampler(new AlwaysOnSampler())
+                .AddOtlpExporter(options => 
+                { 
+                    options.Endpoint = new Uri("http://otel-collector:4318/v1/traces");
+                    options.Protocol = OtlpExportProtocol.HttpProtobuf;
+                });
+        })
+        .WithMetrics(providerBuilder =>
+        {
+            providerBuilder
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddRuntimeInstrumentation()
+                .AddPrometheusExporter();
+        });
+
+
+    var app = builder.Build();
+
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+        app.MapGrpcReflectionService();
+
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
 
 //app.UseHttpsRedirection();
 
-app.MapHealthCheckEndpoints();
+    app.MapPrometheusScrapingEndpoint("/metrics");
+    
+    app.MapHealthCheckEndpoints();
+    
+    MapOrdersRoutes(app);
 
-MapOrdersRoutes(app);
+    app.MapGet("api/order/test-logging", () =>
+    {
+        using var activity = activitySource.StartActivity("test-logging");
+        activity?.SetTag("test", "true");
+        activity?.SetTag("endpoint", "test-logging");
 
-InitializeDatabase(app);
+        Log.Information("Testing logging executed with traceId={TraceId}", Activity.Current?.TraceId.ToString() ?? "no-trace");
+        
+        activity?.SetStatus(ActivityStatusCode.Ok);
 
-app.Run();
+        return Results.Ok(new { traceId = Activity.Current?.TraceId.ToString() });
+    });
 
+    InitializeDatabase(app);
+
+    app.Run();
+}
+catch (Exception e)
+{
+    Log.Fatal(e, "Service Closed Unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 
 void InitializeDatabase(WebApplication app)
 {
