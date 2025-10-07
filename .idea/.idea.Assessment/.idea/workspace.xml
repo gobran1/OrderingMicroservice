@@ -17,14 +17,99 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1afb77f4-e4c1-4dde-a35d-6bb60eeecbd8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/healthcheck.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/healthcheck.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/healthcheck.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Monitoring/grafana/datasources.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Monitoring/TraceEnricher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assessment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assessment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assessment.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Assessment.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/Yarp.Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/refint/Yarp.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiGateway/Yarp.Api/obj/Debug/net9.0/refint/Yarp.Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contract/obj/Debug/net9.0/Contract.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contract/obj/Debug/net9.0/Contract.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitoring/docker-compose.observability.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monitoring/docker-compose.observability.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitoring/fluent-bit/fluent-bit.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monitoring/fluent-bit/fluent-bit.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitoring/otel-collector-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monitoring/otel-collector-config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitoring/prometheus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monitoring/prometheus.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Observability/Metrics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Observability/Metrics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Observability/Tracing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Observability/Tracing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/obj/Debug/net9.0/Platform.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/obj/Debug/net9.0/Platform.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/obj/Debug/net9.0/Platform.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/obj/Debug/net9.0/Platform.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Inventory.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Inventory.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Debug/net9.0/Inventory.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Debug/net9.0/Inventory.Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Debug/net9.0/Inventory.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Debug/net9.0/Inventory.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/Inventory.Api.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Features/Product/Queries/GetProductsByIdQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Features/Product/Queries/GetProductsByIdQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Features/Product/Queries/GetProductsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Features/Product/Queries/GetProductsQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Inventory.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/Inventory.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Debug/net9.0/Inventory.Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Inventory.Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Inventory.Application.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Inventory.Application.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/Inventory.Application.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Application/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Domain/obj/Debug/net9.0/Inventory.Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Domain/obj/Debug/net9.0/Inventory.Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Domain/obj/Debug/net9.0/Inventory.Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Domain/obj/Debug/net9.0/Inventory.Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Consumers/OrderCreatedConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Consumers/OrderCreatedConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Inventory.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/Inventory.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Debug/net9.0/Inventory.Infrastructure.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/Inventory.Infrastructure.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Infrastructure/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Api/obj/Debug/net9.0/Notification.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Api/obj/Debug/net9.0/Notification.Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Application/obj/Debug/net9.0/Notification.Application.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/Notification.Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/Notification.Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/Notification.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/Notification.Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/refint/Notification.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Domain/obj/Debug/net9.0/refint/Notification.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Infrastructure/obj/Debug/net9.0/Notification.Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Infrastructure/obj/Debug/net9.0/Notification.Infrastructure.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.Infrastructure/obj/Debug/net9.0/Notification.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.Infrastructure/obj/Debug/net9.0/Notification.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/Order.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/Order.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Debug/net9.0/Order.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Debug/net9.0/Order.Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Debug/net9.0/Order.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Debug/net9.0/Order.Api.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Order.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/Order.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CancelOrderCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CancelOrderCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CreateOrderCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CreateOrderCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/FulfillOrderCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/FulfillOrderCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/Order.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Order.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Debug/net9.0/Order.Application.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Order.Application.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/Order.Application.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Application/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Domain/obj/Debug/net9.0/Order.Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Consumer/SalesStockFailedConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Consumer/SalesStockFailedConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Consumer/SalesStockReservedConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Consumer/SalesStockReservedConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Grpc/ProductGrpcClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Grpc/ProductGrpcClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Order.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/Order.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Debug/net9.0/Order.Infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Order.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/Order.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Order/Order.Infrastructure/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/SharedKernel.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/refint/SharedKernel.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/obj/Debug/net9.0/refint/SharedKernel.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +145,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/32b4a29d026a47f2b70331ba6315ff8f13200/31/b9533f95/IPipelineBehavior`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/32b4a29d026a47f2b70331ba6315ff8f13200/e0/0406245a/IPublisher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3e6f03b324974d80b20d1999c4a43881f83400/13/b2f7b039/Monitor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adc13a286bec434b9937b80614dec947f5820/ed/6b8d0e5b/Metrics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b13cb16f7e5749269b6922dc6752bd1c291448/9e/3cfe9e6f/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bf3f51607a3e4e76b5b91640cd7409195c430/13/8595a157/ReverseProxyServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d97c8a76b2994045a880e98791e0722a26e60/28/ccf0c208/GrpcServicesExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/219a6e4393ccc91c17bbeae9dfd6ae5aab114f8281e1352623c56ba1796a/EntityFrameworkOutboxConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7afd9724cf757c4a8469dba2bdc22ab5ac111c91f431dbfefc992dacb3e8635/ControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
@@ -116,7 +203,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Order.Api: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Yarp.Api: https">
     <configuration name="Inventory.Api: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Services/Inventory/Inventory.Api/Inventory.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
@@ -393,7 +480,26 @@
       <workItem from="1758172746472" duration="4791000" />
       <workItem from="1758217448077" duration="8082000" />
       <workItem from="1758260934159" duration="7198000" />
-      <workItem from="1758302359984" duration="40996000" />
+      <workItem from="1758302359984" duration="41251000" />
+      <workItem from="1758387061552" duration="109000" />
+      <workItem from="1758432398189" duration="14086000" />
+      <workItem from="1758523823231" duration="6084000" />
+      <workItem from="1758782575895" duration="600000" />
+      <workItem from="1758863047130" duration="13123000" />
+      <workItem from="1758880688440" duration="3871000" />
+      <workItem from="1758950990128" duration="2488000" />
+      <workItem from="1759000771553" duration="2224000" />
+      <workItem from="1759044793457" duration="21597000" />
+      <workItem from="1759124255946" duration="17095000" />
+      <workItem from="1759211507774" duration="2562000" />
+      <workItem from="1759278239013" duration="15012000" />
+      <workItem from="1759402228267" duration="11475000" />
+      <workItem from="1759473321030" duration="25867000" />
+      <workItem from="1759541885890" duration="8259000" />
+      <workItem from="1759581601056" duration="3242000" />
+      <workItem from="1759591125617" duration="775000" />
+      <workItem from="1759595375816" duration="16226000" />
+      <workItem from="1759652291109" duration="38307000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -411,6 +517,18 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Extensions.Hosting" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Api" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Instrumentation.AspNetCore" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Client" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -440,32 +558,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CancelOrderCommandHandler.cs</url>
-          <line>31</line>
-          <properties documentPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/CancelOrderCommandHandler.cs" containingFunctionPresentation="Method 'Handle'">
-            <startOffsets>
-              <option value="1005" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1042" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/FulfillOrderCommandHandler.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/src/Services/Order/Order.Application/Features/Order/Commands/FulfillOrderCommandHandler.cs" containingFunctionPresentation="Method 'Handle'">
-            <startOffsets>
-              <option value="1005" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1042" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

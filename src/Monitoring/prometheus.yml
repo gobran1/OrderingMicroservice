@@ -4,4 +4,19 @@ global:
 scrape_configs: 
   - job_name: "otel-collector"
     static_configs: 
-      - targets: ["otel-collector:8888"]
+      - targets: ["otel-collector:8889"]
+  
+  - job_name: 'order-api'
+    static_configs:
+      - targets: ['order.api:5002']
+    metrics_path: '/metrics'
+  
+  - job_name: 'inventory-api'
+    static_configs:
+      - targets: ['inventory.api:5001']
+    metrics_path: '/metrics'
+    
+  - job_name: 'gateway'
+    static_configs:
+      - targets: ['gateway.yarp:5000']
+    metrics_path: '/metrics'

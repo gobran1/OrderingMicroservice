@@ -3792,7 +3792,9 @@
           "FluentValidation": "11.9.2",
           "FluentValidation.DependencyInjectionExtensions": "11.9.2",
           "MediatR": "12.5.0",
-          "Order.Domain": "1.0.0"
+          "Order.Domain": "1.0.0",
+          "Platform": "1.0.0",
+          "Serilog.Extensions.Hosting": "9.0.0"
         },
         "compile": {
           "bin/placeholder/Order.Application.dll": {}
@@ -3812,6 +3814,16 @@
         },
         "runtime": {
           "bin/placeholder/Order.Domain.dll": {}
+        }
+      },
+      "Platform/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Platform.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Platform.dll": {}
         }
       },
       "SharedKernel/1.0.0": {
@@ -9886,6 +9898,11 @@
       "type": "project",
       "path": "../Order.Domain/Order.Domain.csproj",
       "msbuildProject": "../Order.Domain/Order.Domain.csproj"
+    },
+    "Platform/1.0.0": {
+      "type": "project",
+      "path": "../../../Platform/Platform.csproj",
+      "msbuildProject": "../../../Platform/Platform.csproj"
     },
     "SharedKernel/1.0.0": {
       "type": "project",

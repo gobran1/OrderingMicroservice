@@ -67,6 +67,65 @@
         }
       }
     },
+    "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj",
+        "projectName": "Platform",
+        "projectPath": "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj",
+        "packagesPath": "/Users/majd/.nuget/packages/",
+        "outputPath": "/Users/majd/Documents/projects/assesment/src/Platform/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/majd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Api/Inventory.Api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -89,6 +148,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj"
+              },
               "/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Application/Inventory.Application.csproj": {
                 "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Application/Inventory.Application.csproj"
               },
@@ -191,6 +253,9 @@
               "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj": {
                 "projectPath": "/Users/majd/Documents/projects/assesment/src/Contract/Contract.csproj"
               },
+              "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj": {
+                "projectPath": "/Users/majd/Documents/projects/assesment/src/Platform/Platform.csproj"
+              },
               "/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Domain/Inventory.Domain.csproj": {
                 "projectPath": "/Users/majd/Documents/projects/assesment/src/Services/Inventory/Inventory.Domain/Inventory.Domain.csproj"
               },
@@ -223,6 +288,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.5.0, )"
+            },
+            "Serilog.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -404,9 +473,69 @@
               "target": "Package",
               "version": "[9.0.9, )"
             },
+            "OpenTelemetry": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "OpenTelemetry.Instrumentation.Runtime": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
             "Polly": {
               "target": "Package",
               "version": "[8.6.3, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Serilog.Enrichers.Process": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Serilog.Enrichers.Thread": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Serilog.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Formatting.Compact": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "SharpAbp.Abp.OpenTelemetry.Exporter.Prometheus.AspNetCore": {
+              "target": "Package",
+              "version": "[4.5.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

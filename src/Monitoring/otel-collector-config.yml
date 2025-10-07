@@ -1,36 +1,36 @@
 receivers:
   otlp:
     protocols:
-      grpc:
+      grpc:       
         endpoint: 0.0.0.0:4317
       http:
         endpoint: 0.0.0.0:4318
-  fluentforward:
-    endpoint: "0.0.0.0:24224"
 
 processors:
   batch:
     timeout: 10s
   memory_limiter:
     check_interval: 1s
-    limit_mib: 400
-    spike_limit_mib: 200
+    limit_mib: 512
+    spike_limit_mib: 256
+  attributes:
+    actions:
+      - action: upsert
+        key: deployment.environment
+        value: production
 
 exporters:
-  jaeger:
-    endpoint: "jaeger:14250"
-    tls:
-      insecure: true
-  
+  zipkin:
+    endpoint: "http://jaeger:9411/api/v2/spans"
   prometheus:
     endpoint: "0.0.0.0:8889"
-    
+
 service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [batch, memory_limiter]
-      exporters: [jaeger]
+      processors: [batch, memory_limiter, attributes]
+      exporters: [zipkin]
     metrics:
       receivers: [otlp]
       processors: [batch]

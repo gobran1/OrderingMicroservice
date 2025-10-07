@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Contract.SharedDTOs;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,11 @@ using Order.Application.Features.Order.Queries;
 using Order.Infrastructure.Extensions;
 using Order.Infrastructure.Monitoring;
 using Order.Infrastructure.Persistence;
+using Platform.Observability;
 using Serilog;
 using Serilog.Formatting.Compact;
 using SharedKernel.DTOs;
+using SharedKernel.ValueObjects;
 
 
 var serviceName = "Order.Api";
@@ -28,9 +31,10 @@ var activitySource = new ActivitySource(serviceName, serviceVersion);
 
 var loggerConfiguration = new LoggerConfiguration()
     .MinimumLevel.Information()
-    .Enrich.FromLogContext()
     .Enrich.WithProperty("service", serviceName)
+    .Enrich.WithProperty("version", serviceVersion)
     .Enrich.WithProperty("environment", environment)
+    .Enrich.FromLogContext()
     .Enrich.WithProcessId()
     .Enrich.WithThreadId()
     .Enrich.WithMachineName()
@@ -52,10 +56,7 @@ try
 
     builder.Services.AddHealthCheckServices(builder.Configuration);
 
-    var resourceBuilder = ResourceBuilder.CreateDefault()
-        .AddService(serviceName: serviceName, serviceVersion: serviceVersion);
-
-
+    
     // Configure OpenTelemetry
     builder.Services.AddOpenTelemetry()
         .ConfigureResource(resource => resource
@@ -65,10 +66,10 @@ try
             providerBuilder
                 .AddAspNetCoreInstrumentation()
                 .AddHttpClientInstrumentation()
-                .AddSource(serviceName) // Use the service name as the activity source
+                .AddSource(serviceName)
                 .SetSampler(new AlwaysOnSampler())
                 .AddOtlpExporter(options => 
-                { 
+                {
                     options.Endpoint = new Uri("http://otel-collector:4318/v1/traces");
                     options.Protocol = OtlpExportProtocol.HttpProtobuf;
                 });
@@ -79,6 +80,7 @@ try
                 .AddAspNetCoreInstrumentation()
                 .AddHttpClientInstrumentation()
                 .AddRuntimeInstrumentation()
+                .AddMeter("business.metrics")
                 .AddPrometheusExporter();
         });
 
@@ -96,26 +98,26 @@ try
     }
 
 //app.UseHttpsRedirection();
-
+    
     app.MapPrometheusScrapingEndpoint("/metrics");
     
     app.MapHealthCheckEndpoints();
     
     MapOrdersRoutes(app);
-
+    
     app.MapGet("api/order/test-logging", () =>
     {
         using var activity = activitySource.StartActivity("test-logging");
         activity?.SetTag("test", "true");
         activity?.SetTag("endpoint", "test-logging");
-
+        
         Log.Information("Testing logging executed with traceId={TraceId}", Activity.Current?.TraceId.ToString() ?? "no-trace");
         
         activity?.SetStatus(ActivityStatusCode.Ok);
-
+        
         return Results.Ok(new { traceId = Activity.Current?.TraceId.ToString() });
     });
-
+    
     InitializeDatabase(app);
 
     app.Run();

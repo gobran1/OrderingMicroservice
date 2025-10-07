@@ -8,24 +8,22 @@ services:
     ports:
       - "4317:4317" #otlp grpc ( apps -> collector )
       - "4318:4318" #otlp http
-      - "24224:24224" #fluent forward receiver ( fluent bit -> collector )
       - "8889:8889" #collector prometheus scrape endpoint 
     networks:
       - observability
     restart: 
       unless-stopped
   
-  fluent-bit:
-    image: fluent/fluent-bit:4.1.0
-    container_name: fluent-bit
+  promtail:
+    image: grafana/promtail:3.5.0
+    container_name: promtail
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
-      - ./fluent-bit/fluent-bit.conf:/etc/fluent-bit/fluent-bit.conf:ro
-      - ./fluent-bit/parser.conf:/etc/fluent-bit/parser.conf:ro
-    environment:
-      - FLUENT_ELASTICSEARCH_HOST= #NOT USED
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./promtail/promtail.yml:/etc/promtail/promtail.yml:ro
+    command: -config.file=/etc/promtail/promtail.yml
     depends_on:
-      - otel-collector
+      - loki
     networks:
       - observability
     restart:
@@ -44,10 +42,11 @@ services:
     image: jaegertracing/all-in-one:1.73.0
     container_name: jaeger
     environment:
-      - COLLECTOR_OTLP_ENABLED=true
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
     ports:
       - "16686:16686" #UI
-      - "14250:14250" # GRPC ( collector -> jaeger )
+      - "14250:14250" # GRPC collector
+      - "9411:9411" # zipkin endpoint
     networks:
       - observability
     restart: unless-stopped
@@ -70,12 +69,14 @@ services:
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
+      - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
       - grafana-storage:/var/lib/grafana
     ports:
       - "3000:3000"
     networks:
       - observability
     restart: unless-stopped
+    
     
 volumes:
   grafana-storage:

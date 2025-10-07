@@ -2,6 +2,7 @@ using AutoMapper;
 using MediatR;
 using Order.Application.Common.Interfaces;
 using Order.Application.Features.Order.DTOs;
+using Platform.Observability;
 using SharedKernel.DTOs;
 
 namespace Order.Application.Features.Order.Commands;
@@ -32,6 +33,13 @@ public class FulfillOrderCommandHandler:IRequestHandler<FulfillOrderCommand,Resu
         
         var orderDto = _mapper.Map<GetOrderDetailsDTO>(order);
         
+        BusinessMetrics.OrdersFulfilled.Add(1,
+            new KeyValuePair<string, object?>(BusinessMetrics.Labels.UserId,order.User.UserId.ToString()));
+        
+        BusinessMetrics.OrderFulFilledValue.Record(order.Total.Amount,
+            new KeyValuePair<string, object?>(BusinessMetrics.Labels.Currency,order.Total.Currency.ToString()),
+            new KeyValuePair<string, object?>(BusinessMetrics.Labels.UserId,order.User.UserId.ToString()))
+            );
         return Result<GetOrderDetailsDTO>.Success(orderDto);
     }
 }

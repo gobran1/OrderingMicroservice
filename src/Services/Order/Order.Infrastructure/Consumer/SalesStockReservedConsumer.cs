@@ -3,6 +3,7 @@ using MassTransit;
 using MediatR;
 using Order.Application.Common.Interfaces;
 using Order.Application.Features.Order.Commands;
+using Platform.Observability;
 using SharedKernel.Entity;
 
 namespace Order.Infrastructure.Consumer;
@@ -34,5 +35,9 @@ public class SalesStockReservedConsumer : IConsumer<SalesStockReservedEventV1>
        await  _mediator.Send(new FulfillOrderCommand(context.Message.OrderId));
 
        await _unitOfWork.SaveChangesAsync();
+       
+       BusinessMetrics.OrdersFulfilled.Add(1,
+           new KeyValuePair<string, object?>("order_id", context.Message.OrderId.ToString()));
+       
     }
 }

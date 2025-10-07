@@ -1,10 +1,8 @@
 using Contract.SharedDTOs;
-using Google.Protobuf;
 using Order.Application.Common.Interfaces;
 using Order.Application.Features.Order.DTOs;
 using Product.V1;
 using SharedKernel.DTOs;
-using SharedKernel.ValueObjects;
 
 namespace Order.Infrastructure.Grpc;
 

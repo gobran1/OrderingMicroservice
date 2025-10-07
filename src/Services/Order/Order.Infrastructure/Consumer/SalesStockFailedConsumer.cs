@@ -3,6 +3,7 @@ using MassTransit;
 using MediatR;
 using Order.Application.Common.Interfaces;
 using Order.Application.Features.Order.Commands;
+using Platform.Observability;
 using SharedKernel.Entity;
 
 namespace Order.Infrastructure.Consumer;
@@ -22,17 +23,21 @@ public class SalesStockFailedConsumer : IConsumer<SalesStockFailedEventV1>
     {
         if (await _unitOfWork.ProcessedMessageRepository.CheckExist(context.Message.Id))
             return;
-    
+        
         await _unitOfWork.ProcessedMessageRepository.InsertAsync(new ProcessedMessage
         {
             MessageId = context.Message.Id,
             ProcessedAt = DateTime.UtcNow
         });
         
-        var order = context.Message.OrderId;
+        var orderId = context.Message.OrderId;
         
        await  _mediator.Send(new CancelOrderCommand(context.Message.OrderId));
 
        await _unitOfWork.SaveChangesAsync();
+       
+       BusinessMetrics.OrdersCancelled.Add(1,
+           new KeyValuePair<string, object?>("order_id", orderId.ToString()));
+       
     }
 }
